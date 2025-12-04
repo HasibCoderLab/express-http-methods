@@ -40,10 +40,12 @@ app.get("/" , (req, res) =>{
     // res.send(body);
 });
 
-
 app.get("/user/:id" , (req,res) =>{
     let id = req.params.id;
-    let exitingUser = users.find((user )=> (user.id==id))
+    let exitingUser = users.find((user )=> (user.id==id));
+    if (!exitingUser) {
+        return res.send("user does not found");
+    }
     res.json(exitingUser);
     console.log(exitingUser);
     
