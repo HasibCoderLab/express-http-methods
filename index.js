@@ -41,14 +41,12 @@ app.get("/" , (req, res) =>{
 });
 
 
-app.get("/user/:id" , (req, res) =>{
+app.get("/user/:id" , (req,res) =>{
     let id = req.params.id;
-
-  let exitingUser = users.find((user) => (user.id == id) )  
-res.json(exitingUser);
-console.log(exitingUser);
-
-
+    let exitingUser = users.find((user )=> (user.id==id))
+    res.json(exitingUser);
+    console.log(exitingUser);
+    
 })
 app.listen(port , () =>{
     console.log(`setver is stated at ${port}`);
